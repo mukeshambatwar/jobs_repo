@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>hydrabad jobs info</title>
+    <link rel="stylesheet" href="{% static "css/jobs76.css"%}">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Hydrabad Jobs through Durgajob Portal</h1>
+      <img src="{% static "images/Charminar.jpg"%}" alt="">
+      <img src="{% static "images/hussain_sagar.jpg"%}" alt="">
+      <img src="{% static "images/techhub.jpg"%}" alt="">
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    {% if jobs_list %}
+    <table>
+      <thead>
+        <th>date</th>
+        <th>title</th>
+        <th>company</th>
+        <th>eligibility</th>
+        <th>email</th>
+        <th>phonenumber</th>
+        <th>address</th>
+      </thead>
+      {% for job in jobs_list %}
+      <tr>
+        <td>{{job.date}}</td>
+        <td>{{job.title}}</td>
+        <td>{{job.company}}</td>
+        <td>{{job.eligibility}}</td>
+        <td>{{job.email}}</td>
+        <td>{{job.phonenumber}}</td>
+        <td>{{job.address}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p id='specialp'>No job found in hydrabad </p>
+    {% endif %}
+  </body>
+</html>
